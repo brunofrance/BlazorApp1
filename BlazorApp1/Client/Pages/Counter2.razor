@@ -1,0 +1,19 @@
+﻿@page "/counter2"
+
+<h1>Counter with code inside the .razor page</h1>
+<p><small>Set a breakpoint on line 6 (@@if (currentCount > 10)) : it will be hit</small></p>
+<p>Current count: @currentCount</p>
+@if (currentCount > 10) // set breakpoint here : hit if @code is below, but doesnét hit if code moved in Counter.razor.cs
+{
+   <h3>Yes !!</h3>
+}
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code
+{
+   private int currentCount = 0;
+   private void IncrementCount()
+   {
+      currentCount++;
+   }
+}
